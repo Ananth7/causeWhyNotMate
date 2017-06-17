@@ -15,7 +15,7 @@ while 1<2:
                                 if 'why did you' in text.lower() and 'you not' not in text.lower() and  len(text)<300 and author != 'causeWhyNotMorty':
                                         message='[*cause why not, mate?*](https://www.reddit.com/r/causeWhyNotMate/)'
                                         comment.reply(message)
-                				if 'why do you' in text.lower() and 'you not' not in text.lower() and len(text)<300 and author != 'causeWhyNotMorty':
+                				        if 'why do you' in text.lower() and 'you not' not in text.lower() and len(text)<300 and author != 'causeWhyNotMorty':
                                         message='[*cause why not, mate?*](https://www.reddit.com/r/causeWhyNotMate/)'
                                         comment.reply(message)
 				except Exception as e:

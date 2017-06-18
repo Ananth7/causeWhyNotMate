@@ -43,17 +43,17 @@ while 1<2:
                 try:
                                 text = comment.body
                                 author = comment.author
-                                if 'why?' == text.lower() and author != 'causeWhyNotMaty' and str(submission) not in blackList:
+                                if 'why?' == text.lower() and author != 'causeWhyNotMaty' and str(submission.subreddit).lower() not in blackList:
                                         message='[*why not, mate?*](https://www.reddit.com/r/causeWhyNotMate/)'
                                         comment.reply(message)
                                         getEntireCommentContext(comment, message)
-                                if 'why did you' in text.lower() and 'you not' not in text.lower() and  len(text)<200 and author != 'causeWhyNotMaty' and str(submission) not in blackList:
+                                if 'why did you' in text.lower() and 'you not' not in text.lower() and  len(text)<200 and author != 'causeWhyNotMaty' and str(submission.subreddit).lower() not in blackList:
                                         message='[*cause why not, mate?*](https://www.reddit.com/r/causeWhyNotMate/)'
                                		replyMessage='This is in reply to your recent comment.'+'\n\n>' + text + '\n\n'
                                         fullContext=getEntireCommentContext(comment, message)
 					fullContext+='_________________________________________________________________________________________'
                                         author.message('cause why not, mate?',replyMessage +'\n\n>' + message)
-				if 'why do you' in text.lower() and 'you not' not in text.lower() and len(text)<200 and author != 'causeWhyNotMaty' and str(submission) not in blackList:
+				if 'why do you' in text.lower() and 'you not' not in text.lower() and len(text)<200 and author != 'causeWhyNotMaty' and str(submission.subreddit).lower() not in blackList:
                                         message='[*cause why not, mate?*](https://www.reddit.com/r/causeWhyNotMate/)'
 					replyMessage='This is in reply to your recent comment.'+ '\n\n>'+ text +'\n\n'
                                         fullContext=getEntireCommentContext(comment, message)

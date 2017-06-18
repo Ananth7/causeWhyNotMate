@@ -8,15 +8,18 @@ bot = praw.Reddit(user_agent='WhyNot Mortyy only post v0.1',
 subreddit = bot.subreddit('all')
 comments = subreddit.stream.comments()
 
+blackList=['suicidewatch','depression']
+
 while 1<2:
         for comment in comments:
+          submission = comment.submission
           try:
                     text = comment.body
                     author = comment.author
-                    if 'why did you' in text.lower() and 'you not' not in text.lower() and  len(text)<300 and author != 'causeWhyNotMorty':
+                    if 'why did you' in text.lower() and 'you not' not in text.lower() and  len(text)<200 and author != 'causeWhyNotMorty' and str(submission) not in blackList:
                             message='[*cause why not, mate?*](https://www.reddit.com/r/causeWhyNotMate/)'
                             comment.reply(message)
-                    if 'why do you' in text.lower() and 'you not' not in text.lower() and len(text)<300 and author != 'causeWhyNotMorty':
+                    if 'why do you' in text.lower() and 'you not' not in text.lower() and len(text)<200 and author != 'causeWhyNotMorty' and str(submission) not in blackList:
                             message='[*cause why not, mate?*](https://www.reddit.com/r/causeWhyNotMate/)'
                             comment.reply(message)
           except Exception as e:

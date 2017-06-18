@@ -9,10 +9,16 @@ submitSubreddit = bot.subreddit('causeWhyNotMate')
 subreddit = bot.subreddit('all')
 comments = subreddit.stream.comments()
 
+disallowed=[
+"depression", 
+"sociopath", 
+"suicidewatch"
+]
+
 def getEntireCommentContext(comment, message):
         submission = comment.submission
         op = submission.author
-	author = comment.author
+        author = comment.author
         context = str(op.name)+'@'+str(submission.subreddit) + ": " + str(submission.title) + '\n' + str(submission.selftext) + '\n' + submission.shortlink + '\n'
         context += '\n' + '_________________________________________________________________________________________'
         parentcommentlist=[]
@@ -40,21 +46,24 @@ while 1<2:
                 try:
                                 text = comment.body
                                 author = comment.author
-                                if 'why?' == text.lower() and author != 'causeWhyNotMaty':
+                                submission = comment.submission
+                                submissionSubreddit=submission.subreddit                          
+
+                                if 'why?' == text.lower() and author != 'causeWhyNotMaty' and submissionSubreddit not in disallowed:
                                         message='[*why not, mate?*](https://www.reddit.com/r/causeWhyNotMate/)'
                                         comment.reply(message)
                                         getEntireCommentContext(comment, message)
-                                if 'why did you' in text.lower() and 'you not' not in text.lower() and  len(text)<300 and author != 'causeWhyNotMaty':
+                                if 'why did you' in text.lower() and 'you not' not in text.lower() and  len(text)<300 and author != 'causeWhyNotMaty'  and submissionSubreddit not in disallowed:
                                         message='[*cause why not, mate?*](https://www.reddit.com/r/causeWhyNotMate/)'
-                               		replyMessage='This is in reply to your recent comment.'+'\n\n>' + text + '\n\n'
+                                        replyMessage='This is in reply to your recent comment.'+'\n\n>' + text + '\n\n'
                                         fullContext=getEntireCommentContext(comment, message)
-					fullContext+='_________________________________________________________________________________________'
+                                        fullContext+='_________________________________________________________________________________________'
                                         author.message('cause why not, mate?',replyMessage +'\n\n>' + message)
-				if 'why do you' in text.lower() and 'you not' not in text.lower() and len(text)<300 and author != 'causeWhyNotMaty':
+                                if 'why do you' in text.lower() and 'you not' not in text.lower() and len(text)<300 and author != 'causeWhyNotMaty'  and submissionSubreddit not in disallowed:
                                         message='[*cause why not, mate?*](https://www.reddit.com/r/causeWhyNotMate/)'
-					replyMessage='This is in reply to your recent comment.'+ '\n\n>'+ text +'\n\n'
+                                        replyMessage='This is in reply to your recent comment.'+ '\n\n>'+ text +'\n\n'
                                         fullContext=getEntireCommentContext(comment, message)
-					fullContext+='_________________________________________________________________________________________'
+                                        fullContext+='_________________________________________________________________________________________'
                                         author.message('cause why not, mate?',replyMessage +'\n\n>'+ message)
                 except Exception as e:
                         print e

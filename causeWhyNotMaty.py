@@ -15,7 +15,7 @@ def getEntireCommentContext(comment, message):
         submission = comment.submission
         op = submission.author
 	author = comment.author
-        context = str(op.name)+'@'+str(submission.subreddit) + ": " + str(submission.title) + '\n' + str(submission.selftext) + '\n' + submission.shortlink + '\n'
+        context = str(op.name)+'@'+str(submission.subreddit) + ": " + str(submission.title) + '\n' + str(submission.url) +'\n' + str(submission.selftext) + '\n' + submission.shortlink + '\n'
         context += '\n' + '_________________________________________________________________________________________'
         parentcommentlist=[]
         parentcomments = getAllParentReplies(comment, parentcommentlist).reverse()

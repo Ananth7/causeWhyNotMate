@@ -20,4 +20,4 @@ while 1<2:
                             message='[*cause why not, mate?*](https://www.reddit.com/r/causeWhyNotMate/)'
                             comment.reply(message)
           except Exception as e:
-            raise e
+            print e

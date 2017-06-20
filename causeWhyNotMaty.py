@@ -5,7 +5,7 @@ bot = praw.Reddit(user_agent='causeWhyNotMaty only post v0.1',
                   client_secret='3c7v5itxbRkeBKgxYOWUVONsiTc',
                   username='causeWhyNotMaty',
                   password='asdfasdf')
-submitSubreddit = bot.subreddit('causeWhyNotMate')
+submitSubreddit = bot.subreddit('causeWhyNotMaty')
 subreddit = bot.subreddit('all')
 comments = subreddit.stream.comments()
 
@@ -15,7 +15,7 @@ def getEntireCommentContext(comment, message):
         submission = comment.submission
         op = submission.author
 	author = comment.author
-        context = str(op.name)+'@'+str(submission.subreddit) + ": " + str(submission.title) + '\n' + str(submission.url) +'\n' + str(submission.selftext) + '\n' + submission.shortlink + '\n'
+        context = str(op.name)+'@'+str(submission.subreddit) + ": " + str(submission.title) + '\n\n' + str(submission.url) +'\n' + str(submission.selftext) + '\n' + submission.shortlink + '\n'
         context += '\n' + '_________________________________________________________________________________________'
         parentcommentlist=[]
         parentcomments = getAllParentReplies(comment, parentcommentlist).reverse()
@@ -43,21 +43,21 @@ while 1<2:
                 try:
                                 text = comment.body
                                 author = comment.author
-                                if 'why?' == text.lower() and author != 'causeWhyNotMaty' and str(submission.subreddit).lower() not in blackList:
-                                        message='[*why not, mate?*](https://www.reddit.com/r/causeWhyNotMate/)'
-                                        comment.reply(message)
+                                if 'why?' == text.lower() and author != 'causeWhyNotMaty':
+                                        message='[*why not, mate?*](https://www.reddit.com/r/causeWhyNotMaty/)'
+                                        # comment.reply(message)
                                         getEntireCommentContext(comment, message)
-                                if 'why did you' in text.lower() and 'you not' not in text.lower() and  len(text)<200 and author != 'causeWhyNotMaty' and str(submission.subreddit).lower() not in blackList:
-                                        message='[*cause why not, mate?*](https://www.reddit.com/r/causeWhyNotMate/)'
+                                if 'why did you' in text.lower() and 'you not' not in text.lower() and  len(text)<200 and author != 'causeWhyNotMaty':
+                                        message='[*cause why not, mate?*](https://www.reddit.com/r/causeWhyNotMaty/)'
                                		replyMessage='This is in reply to your recent comment.'+'\n\n>' + text + '\n\n'
                                         fullContext=getEntireCommentContext(comment, message)
 					fullContext+='_________________________________________________________________________________________'
-                                        author.message('cause why not, mate?',replyMessage +'\n\n>' + message)
-				if 'why do you' in text.lower() and 'you not' not in text.lower() and len(text)<200 and author != 'causeWhyNotMaty' and str(submission.subreddit).lower() not in blackList:
-                                        message='[*cause why not, mate?*](https://www.reddit.com/r/causeWhyNotMate/)'
+                                        # author.message('cause why not, mate?',replyMessage +'\n\n>' + message)
+				if 'why do you' in text.lower() and 'you not' not in text.lower() and len(text)<200 and author != 'causeWhyNotMaty':
+                                        message='[*cause why not, mate?*](https://www.reddit.com/r/causeWhyNotMaty/)'
 					replyMessage='This is in reply to your recent comment.'+ '\n\n>'+ text +'\n\n'
                                         fullContext=getEntireCommentContext(comment, message)
 					fullContext+='_________________________________________________________________________________________'
-                                        author.message('cause why not, mate?',replyMessage +'\n\n>'+ message)
+                                        # author.message('cause why not, mate?',replyMessage +'\n\n>'+ message)
                 except Exception as e:
                         print e

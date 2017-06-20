@@ -1,9 +1,9 @@
 import praw
 import datetime
 bot = praw.Reddit(user_agent='causeWhyNotMaty only post v0.1',
-                  client_id='6wpV85OogUi3Cg',
-                  client_secret='3c7v5itxbRkeBKgxYOWUVONsiTc',
-                  username='causeWhyNotMaty',
+                  client_id='v5Z_HKvgtU6GjA',
+                  client_secret='anKl5eoBaQsRllYZsTs3Pib-8sk',
+                  username='causeWhyNottMate',
                   password='asdfasdf')
 submitSubreddit = bot.subreddit('causeWhyNotMaty')
 subreddit = bot.subreddit('all')

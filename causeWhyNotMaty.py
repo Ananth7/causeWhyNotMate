@@ -1,11 +1,11 @@
 import praw
 import datetime
-bot = praw.Reddit(user_agent='causeWhyNotMaty only post v0.1',
-                  client_id='6wpV85OogUi3Cg',
-                  client_secret='3c7v5itxbRkeBKgxYOWUVONsiTc',
-                  username='causeWhyNotMaty',
-                  password='asdfasdf')
-submitSubreddit = bot.subreddit('causeWhyNotMate')
+bot = praw.Reddit(user_agent='justalilbit lalala v0.1',
+                  client_id='UbwBYg5STT1TWw',
+                  client_secret='KRN00vU1wGNRq0S73f8HzcERnPU',
+                  username='JUST-A-LIL-BIT',
+                  password='asdfasdf7')
+submitSubreddit = bot.subreddit('JustALIttleBIt')
 subreddit = bot.subreddit('all')
 comments = subreddit.stream.comments()
 
@@ -20,7 +20,7 @@ def getEntireCommentContext(comment, message):
         parentcommentlist=[]
         parentcomments = getAllParentReplies(comment, parentcommentlist).reverse()
         context += ''.join(parentcommentlist)
-        context += '\n\n' + '* ' + 'causeWhyNotMaty: ' + str(message)
+        context += '\n\n' + '* ' + 'JUST-A-LIL-BIT: ' + str(message)
         context += '\n' + '______________________________________________________________________________'
         with open(str(author.name)+'_'+str(submission.subreddit)+'_'+str(datetime.datetime.now())+'.txt','w') as text_file:
                 text_file.write(context)
@@ -43,21 +43,19 @@ while 1<2:
                 try:
                                 text = comment.body
                                 author = comment.author
-                                if 'why?' == text.lower() and author != 'causeWhyNotMaty' and str(submission.subreddit).lower() not in blackList:
-                                        message='[*why not, mate?*](https://www.reddit.com/r/causeWhyNotMate/)'
+                                if 'just a lil bit' == text.lower() and author != 'JUST-A-LIL-BIT' and str(submission.subreddit).lower() not in blackList:
+                                        message='just a lil bit'
                                         comment.reply(message)
                                         getEntireCommentContext(comment, message)
-                                if 'why did you' in text.lower() and 'you not' not in text.lower() and  len(text)<200 and author != 'causeWhyNotMaty' and str(submission.subreddit).lower() not in blackList:
-                                        message='[*cause why not, mate?*](https://www.reddit.com/r/causeWhyNotMate/)'
-                               		replyMessage='This is in reply to your recent comment.'+'\n\n>' + text + '\n\n'
-                                        fullContext=getEntireCommentContext(comment, message)
-					fullContext+='_________________________________________________________________________________________'
-                                        author.message('cause why not, mate?',replyMessage +'\n\n>' + message)
-				if 'why do you' in text.lower() and 'you not' not in text.lower() and len(text)<200 and author != 'causeWhyNotMaty' and str(submission.subreddit).lower() not in blackList:
-                                        message='[*cause why not, mate?*](https://www.reddit.com/r/causeWhyNotMate/)'
-					replyMessage='This is in reply to your recent comment.'+ '\n\n>'+ text +'\n\n'
-                                        fullContext=getEntireCommentContext(comment, message)
-					fullContext+='_________________________________________________________________________________________'
-                                        author.message('cause why not, mate?',replyMessage +'\n\n>'+ message)
+
+                                if 'just a lil bit.' == text.lower() and author != 'JUST-A-LIL-BIT' and str(submission.subreddit).lower() not in blackList:
+                                        message='just a lil bit'
+                                        comment.reply(message)
+                                        getEntireCommentContext(comment, message)
+ 
+                                if 'just a lil bit!' == text.lower() and author != 'JUST-A-LIL-BIT' and str(submission.subreddit).lower() not in blackList:
+                                        message='just a lil bit'
+                                        comment.reply(message)
+                                        getEntireCommentContext(comment, message)  
                 except Exception as e:
                         print e

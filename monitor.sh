@@ -1,10 +1,10 @@
 #! /bin/bash
 while  true
 do
-result=$(ps aux | grep -c  "[python /home/anantrao/justalilbit/causeWhyNotMaty.py]python /home/anantrao/justalilbit/causeWhyNotMaty.py")
+result=$(ps aux | grep -c  "[python /home/anantrao/justalilbit/causeWhyNotMate/causeWhyNotMaty.py]python /home/anantrao/justalilbit/causeWhyNotMate/causeWhyNotMaty.py")
 case $result in
         0) echo "restarting python causeWhyNotMaty.py"
-           python ~/justalilbit/causeWhyNotMaty.py &
+           python /home/anantrao/justalilbit/causeWhyNotMate/causeWhyNotMaty.py &
            sleep 60
                 ;;
         1)

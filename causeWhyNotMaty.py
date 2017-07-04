@@ -44,17 +44,17 @@ while 1<2:
                                 text = comment.body
                                 author = comment.author
                                 if 'just a lil bit' == text.lower() and author != 'JUST-A-LIL-BIT' and str(submission.subreddit).lower() not in blackList:
-                                        message='just a lil bit'
+                                        message='[*just a lil bit*](https://www.youtube.com/watch?v=GllEDACUbNo/)'
                                         comment.reply(message)
                                         getEntireCommentContext(comment, message)
 
                                 if 'just a lil bit.' == text.lower() and author != 'JUST-A-LIL-BIT' and str(submission.subreddit).lower() not in blackList:
-                                        message='just a lil bit'
+                                        message='[*just a lil bit*](https://www.youtube.com/watch?v=GllEDACUbNo/)'
                                         comment.reply(message)
                                         getEntireCommentContext(comment, message)
  
                                 if 'just a lil bit!' == text.lower() and author != 'JUST-A-LIL-BIT' and str(submission.subreddit).lower() not in blackList:
-                                        message='just a lil bit'
+                                        message='[*just a lil bit*](https://www.youtube.com/watch?v=GllEDACUbNo/)'                                        
                                         comment.reply(message)
                                         getEntireCommentContext(comment, message)  
                 except Exception as e:

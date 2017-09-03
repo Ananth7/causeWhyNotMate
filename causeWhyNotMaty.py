@@ -1,29 +1,29 @@
 import praw
 import datetime
 bot = praw.Reddit(user_agent='causeWhyNotMaty only post v0.1',
-                  client_id='v5Z_HKvgtU6GjA',
-                  client_secret='anKl5eoBaQsRllYZsTs3Pib-8sk',
-                  username='causeWhyNottMate',
+                  client_id='3FciBU2Cp06nOg',
+                  client_secret='OdKOcvOGJ36J_HUc9uvVaqu6BnI',
+                  username='causeWhyNotMate',
                   password='asdfasdf')
-submitSubreddit = bot.subreddit('causeWhyNotMaty')
+submitSubreddit = bot.subreddit('whyNotMate')
 subreddit = bot.subreddit('all')
 comments = subreddit.stream.comments()
 
-blackList=['suicidewatch','depression']
+blackList=[]
 
 def getEntireCommentContext(comment, message):
         submission = comment.submission
         op = submission.author
-	author = comment.author
+	    author = comment.author
         context = str(op.name)+'@'+str(submission.subreddit) + ": " + str(submission.title) + '\n\n' + str(submission.url) +'\n' + str(submission.selftext) + '\n' + submission.shortlink + '\n'
         context += '\n' + '_________________________________________________________________________________________'
         parentcommentlist=[]
         parentcomments = getAllParentReplies(comment, parentcommentlist).reverse()
         context += ''.join(parentcommentlist)
-        context += '\n\n' + '* ' + 'causeWhyNotMaty: ' + str(message)
+        context += '\n\n' + '* ' + 'causeWhyNotMate: ' + str(message)
         context += '\n' + '______________________________________________________________________________'
-        with open(str(author.name)+'_'+str(submission.subreddit)+'_'+str(datetime.datetime.now())+'.txt','w') as text_file:
-                text_file.write(context)
+#        with open(str(author.name)+'_'+str(submission.subreddit)+'_'+str(datetime.datetime.now())+'.txt','w') as text_file:
+#                text_file.write(context)
         submitSubreddit.submit(str(author.name)+'@'+str(submission.subreddit), selftext=context)
         return context
 
@@ -43,21 +43,14 @@ while 1<2:
                 try:
                                 text = comment.body
                                 author = comment.author
-                                if 'why?' == text.lower() and author != 'causeWhyNotMaty':
-                                        message='[*why not, mate?*](https://www.reddit.com/r/causeWhyNotMaty/)'
-                                        # comment.reply(message)
+                                if 'why?' == text.lower() and author != 'causeWhyNotMate':
+                                        message='why not, mate?'
                                         getEntireCommentContext(comment, message)
                                 if 'why did you' in text.lower() and 'you not' not in text.lower() and  len(text)<200 and author != 'causeWhyNotMaty':
-                                        message='[*cause why not, mate?*](https://www.reddit.com/r/causeWhyNotMaty/)'
-                               		replyMessage='This is in reply to your recent comment.'+'\n\n>' + text + '\n\n'
+                                        message='cause why not, mate?'
+                                        getEntireCommentContext(comment, message)
+                    			if 'why do you' in text.lower() and 'you not' not in text.lower() and len(text)<200 and author != 'causeWhyNotMaty':
+                                        message='cause why not, mate?'
                                         fullContext=getEntireCommentContext(comment, message)
-					fullContext+='_________________________________________________________________________________________'
-                                        # author.message('cause why not, mate?',replyMessage +'\n\n>' + message)
-				if 'why do you' in text.lower() and 'you not' not in text.lower() and len(text)<200 and author != 'causeWhyNotMaty':
-                                        message='[*cause why not, mate?*](https://www.reddit.com/r/causeWhyNotMaty/)'
-					replyMessage='This is in reply to your recent comment.'+ '\n\n>'+ text +'\n\n'
-                                        fullContext=getEntireCommentContext(comment, message)
-					fullContext+='_________________________________________________________________________________________'
-                                        # author.message('cause why not, mate?',replyMessage +'\n\n>'+ message)
                 except Exception as e:
                         print e

@@ -14,7 +14,7 @@ blackList=[]
 def getEntireCommentContext(comment, message):
         submission = comment.submission
         op = submission.author
-	    author = comment.author
+        author = comment.author
         context = str(op.name)+'@'+str(submission.subreddit) + ": " + str(submission.title) + '\n\n' + str(submission.url) +'\n' + str(submission.selftext) + '\n' + submission.shortlink + '\n'
         context += '\n' + '_________________________________________________________________________________________'
         parentcommentlist=[]
@@ -50,7 +50,7 @@ while 1<2:
                                         message='cause why not, mate?'
                                         getEntireCommentContext(comment, message)
                     			if 'why do you' in text.lower() and 'you not' not in text.lower() and len(text)<200 and author != 'causeWhyNotMaty':
-                                        message='cause why not, mate?'
-                                        fullContext=getEntireCommentContext(comment, message)
+                                            message='cause why not, mate?'
+                                            fullContext=getEntireCommentContext(comment, message)
                 except Exception as e:
                         print e

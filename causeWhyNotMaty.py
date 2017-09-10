@@ -1,15 +1,25 @@
 import praw
 import datetime
-bot = praw.Reddit(user_agent='causeWhyNotMaty only post v0.1',
-                  client_id='3FciBU2Cp06nOg',
-                  client_secret='OdKOcvOGJ36J_HUc9uvVaqu6BnI',
-                  username='causeWhyNotMate',
+import random
+
+bot = praw.Reddit(user_agent='rick and morty only post v0.1',
+                  client_id='ZgZsh6eozjkpzQ',
+                  client_secret='yC1f9yMNracDOnDurrGTHWukjnY',
+                  username='RickAndMorty_Bot',
                   password='asdfasdf')
-submitSubreddit = bot.subreddit('whyNotMate')
+submitSubreddit = bot.subreddit('loggingmyfavthoughts')
 subreddit = bot.subreddit('all')
 comments = subreddit.stream.comments()
 
-blackList=[]
+fileName = "quotes.txt"
+
+quotes = {}
+
+with open(fileName) as f:
+    for line in f:
+        quotes[line[:-1]] = "1"
+quotes_lower = {k.lower():v for k,v in quotes.items()}
+blackList=['suicideWatch', 'depression']
 
 def getEntireCommentContext(comment, message):
         submission = comment.submission
@@ -43,14 +53,11 @@ while 1<2:
                 try:
                                 text = comment.body
                                 author = comment.author
-                                if 'why?' == text.lower() and author != 'causeWhyNotMate':
-                                        message='why not, mate?'
-                                        getEntireCommentContext(comment, message)
-                                if 'why did you' in text.lower() and 'you not' not in text.lower() and  len(text)<200 and author != 'causeWhyNotMaty':
-                                        message='cause why not, mate?'
-                                        getEntireCommentContext(comment, message)
-                    			if 'why do you' in text.lower() and 'you not' not in text.lower() and len(text)<200 and author != 'causeWhyNotMaty':
-                                            message='cause why not, mate?'
-                                            fullContext=getEntireCommentContext(comment, message)
+                                subscript = '\n' + '______________________________________________________________________________' + '\n' + '^^^I am a bot, and my only purpose is to serve you random Rick and Morty quotes.'
+                                if text.lower() in quotes_lower and author != 'RickAndMorty_Bot' and str(submission.subreddit).lower() not in blackList:
+                                    print text
+                                    message = random.choice(quotes.keys()) + subscript
+                                    comment.reply(message)
+                                    getEntireCommentContext(comment, message)
                 except Exception as e:
                         print e

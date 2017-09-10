@@ -53,7 +53,7 @@ while 1<2:
                 try:
                                 text = comment.body
                                 author = comment.author
-                                subscript = '\n' + '______________________________________________________________________________' + '\n' + '^^^I am a bot, and my only purpose is to serve you random Rick and Morty quotes.'
+                                subscript = '\n' + '______________________________________________________________________________' + '\n' + '^^^I ^^^am ^^^a ^^^bot, ^^^and ^^^my ^^^only ^^^purpose ^^^is ^^^to ^^^serve ^^^you ^^^random ^^^Rick ^^^and ^^^Morty ^^^quotes.'
                                 if text.lower() in quotes_lower and author != 'RickAndMorty_Bot' and str(submission.subreddit).lower() not in blackList:
                                     print text
                                     message = random.choice(quotes.keys()) + subscript

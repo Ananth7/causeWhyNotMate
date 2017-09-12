@@ -3,9 +3,9 @@ import datetime
 import random
 
 bot = praw.Reddit(user_agent='rick and morty only post v0.1',
-                  client_id='ZgZsh6eozjkpzQ',
-                  client_secret='yC1f9yMNracDOnDurrGTHWukjnY',
-                  username='RickAndMorty_Bot',
+                  client_id='f7hhEBXypE-tuA',
+                  client_secret='YPEM7yQHWN1P2QldlXfMH1lWEFI',
+                  username='RickAndMortyBotv2',
                   password='asdfasdf')
 submitSubreddit = bot.subreddit('loggingmyfavthoughts')
 subreddit = bot.subreddit('all')
@@ -19,8 +19,69 @@ with open(fileName) as f:
     for line in f:
         quotes[line[:-1]] = "1"
 quotes_lower = {k.lower():v for k,v in quotes.items()}
-blackList=['suicideWatch', 'depression']
-
+blackList=[
+    "anime",
+    "asianamerican",
+    "askhistorians",
+    "askscience",
+    "askreddit",
+    "aww",
+    "chicagosuburbs",
+    "cosplay",
+    "cumberbitches",
+    "d3gf",
+    "deer",
+    "depression",
+    "depthhub",
+    "drinkingdollars",
+    "forwardsfromgrandma",
+    "geckos",
+    "giraffes",
+    "grindsmygears",
+    "indianfetish",
+    "me_irl",
+    "misc",
+    "movies",
+    "mixedbreeds",
+    "news",
+    "newtotf2",
+    "omaha",
+    "petstacking",
+    "pics",
+    "pigs",
+    "politicaldiscussion",
+    "politics",
+    "programmingcirclejerk",
+    "raerthdev",
+    "rants",
+    "runningcirclejerk",
+    "salvia",
+    "science",
+    "seiko",
+    "shoplifting",
+    "sketches",
+    "sociopath",
+    "suicidewatch",
+    "talesfromtechsupport",
+    "torrent",
+    "torrents",
+    "trackers",
+    "tr4shbros",
+    "unitedkingdom",
+    "crucibleplaybook",
+    "benfrick",
+    "bsa",
+    "futurology",
+    "graphic_design",
+    "historicalwhatif",
+    "lolgrindr",
+    "malifaux",
+    "nfl",
+    "toonami",
+    "trumpet",
+    "ps2ceres",
+    "duelingcorner"
+  ]
 def getEntireCommentContext(comment, message):
         submission = comment.submission
         op = submission.author

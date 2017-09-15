@@ -110,7 +110,7 @@ def getAllParentReplies(comment, allParentReplies):
 
 def deleteShitIfItHitsTheFan():
     for comment in bot.user.me().comments.new(limit=25):
-        if comment.score < 3:
+        if comment.score < -3:
             comment.delete()
 
 while 1<2:

@@ -108,10 +108,16 @@ def getAllParentReplies(comment, allParentReplies):
                 allParentReplies.append('\n\n' + '* ' + str(comment.author.name) + ': ' + str(comment.body))
                 return getAllParentReplies(parent, allParentReplies)
 
+def deleteShitIfItHitsTheFan():
+    for comment in bot.user.me().comments.new(limit=25):
+        if comment.score < 3:
+            comment.delete()
+
 while 1<2:
         for comment in comments:
                 submission = comment.submission
                 try:
+                                deleteShitIfItHitsTheFan()
                                 text = comment.body
                                 author = comment.author
                                 subscript = '\n' + '______________________________________________________________________________' + '\n' + '^^^I ^^^am ^^^a ^^^bot, ^^^and ^^^my ^^^only ^^^purpose ^^^is ^^^to ^^^serve ^^^you ^^^random ^^^Rick ^^^and ^^^Morty ^^^quotes.'

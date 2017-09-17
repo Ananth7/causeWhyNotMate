@@ -296,15 +296,18 @@ while 1<2:
                                             line1 += words[i] + " "
                                         for i in range(line1index, line2index):
                                             line2 += words[i] + " "
+                                        wordsInLastLine = 0
                                         for i in range(line2index, len(words)):
                                             line3 += words[i] + " "
+                                            wordsInLastLine += 1
                                         line1 = "*" + line1.rstrip() + "*"
                                         line2 = "*" + line2.rstrip() + "*"
                                         line3 = "*" + line3.rstrip() + "*"
                                         message = line1 + "\n\n" + line2 + "\n\n" + line3 + "\n\n" + subscript1
                                         #print str(line1index) + " " + str(line2index)
                                         #print message
-                                        comment.reply(message)
+                                        if wordsInLastLine >= 3:
+                                            comment.reply(message)
                                         getEntireCommentContext(comment, message)
                                         deleteShitIfItHitsTheFan()
                 except Exception as e:

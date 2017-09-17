@@ -250,7 +250,7 @@ while 1<2:
                                 text = comment.body
                                 author = comment.author
                                 subscript = '\n' + '______________________________________________________________________________' + '\n' + '^^^-haiku_bot '#'#, ^^^and ^^^my ^^^only ^^^purpose ^^^is ^^^to ^^^serve ^^^you ^^^random ^^^Rick ^^^and ^^^Morty ^^^quotes.'
-                                subscript1 = '\n' + '______________________________________________________________________________' + '\n' + '^^^-haiku_botv2 '#'#, ^^^and ^^^my ^^^only ^^^purpose ^^^is ^^^to ^^^serve ^^^you ^^^random ^^^Rick ^^^and ^^^Morty ^^^quotes.'
+                                subscript1 = '\n' + '______________________________________________________________________________' + '\n' + '^^^-Almost_made_a_haiku_bot '#'#, ^^^and ^^^my ^^^only ^^^purpose ^^^is ^^^to ^^^serve ^^^you ^^^random ^^^Rick ^^^and ^^^Morty ^^^quotes.'
                                 #if len(text.split()) == 17 and (len(text.split("\n")) == 1 or len(text.split("\n")) == 2 )and author != 'I_am_a_haiku_bot' and str(submission.subreddit).lower() not in blackList:
                                 #    words = text.split()
                                 #    line1 = "*" + words[0] + " " + words[1]+ " "  + words[2]+ " " + words[3]+ " "  + words[4] + "*"

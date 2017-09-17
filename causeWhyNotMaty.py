@@ -270,7 +270,7 @@ while 1<2:
                                         sylCount.append(sylc)
                                         totalSyl += sylc
 
-                                    if (totalSyl == 17):
+                                    if (totalSyl == 17 or totalSyl == 18):
                                         numwords = []
                                         indx = 0
                                         sylencountered = 0
@@ -284,7 +284,7 @@ while 1<2:
                                         sylencountered = 0
                                         for word in words:
                                             sylencountered += sylCount[indx]
-                                            if (sylencountered >= 12):
+                                            if (sylencountered >= 11):
                                                 line2index = indx
                                                 break
                                             indx += 1

@@ -261,7 +261,7 @@ while 1<2:
                                 #    #comment.reply(message)
                                 #    getEntireCommentContext(comment, message)
                                 #    deleteShitIfItHitsTheFan()
-                                if (len(text.split()) < 18 and len(text.split()) > 8 ):
+                                if (len(text.split()) < 18 and len(text.split()) > 12 ):
                                     words = text.split()
                                     sylCount = []
                                     totalSyl = 0

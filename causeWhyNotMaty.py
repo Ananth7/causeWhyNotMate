@@ -250,18 +250,18 @@ while 1<2:
                                 text = comment.body
                                 author = comment.author
                                 subscript = '\n' + '______________________________________________________________________________' + '\n' + '^^^-haiku_bot '#'#, ^^^and ^^^my ^^^only ^^^purpose ^^^is ^^^to ^^^serve ^^^you ^^^random ^^^Rick ^^^and ^^^Morty ^^^quotes.'
-                                subscript1 = '\n' + '______________________________________________________________________________' + '\n' + '^^^-haiku_bot'#'#, ^^^and ^^^my ^^^only ^^^purpose ^^^is ^^^to ^^^serve ^^^you ^^^random ^^^Rick ^^^and ^^^Morty ^^^quotes.'
-                                #if len(text.split()) == 17 and (len(text.split("\n")) == 1 or len(text.split("\n")) == 2 )and author != 'I_am_a_haiku_bot' and str(submission.subreddit).lower() not in blackList:
-                                #    words = text.split()
-                                #    line1 = "*" + words[0] + " " + words[1]+ " "  + words[2]+ " " + words[3]+ " "  + words[4] + "*"
-                                #    line2 = "*" + words[5]+ " "  + words[6]+ " "  + words[7]+ " "  + words[8] + " " + words[9]+ " "  + words[10]+ " "  + words[11] + "*"
-                                #    line3 = "*" + words[12] + " " + words[13] + " " + words[14]+ " "  + words[15]+ " "  + words[16] + "*"
-                                #    message = line1 + "\n\n" + line2 + "\n\n" + line3 + "\n\n" + subscript
-                                #    #print message
-                                #    #comment.reply(message)
-                                #    getEntireCommentContext(comment, message)
-                                #    deleteShitIfItHitsTheFan()
-                                if (len(text.split()) < 18 and len(text.split()) > 11 ):
+                                subscript1 = '\n' + '______________________________________________________________________________' + '\n' + '^^^-haiku_botv2'#'#, ^^^and ^^^my ^^^only ^^^purpose ^^^is ^^^to ^^^serve ^^^you ^^^random ^^^Rick ^^^and ^^^Morty ^^^quotes.'
+                                if len(text.split()) == 17 and (len(text.split("\n")) == 1 or len(text.split("\n")) == 2 )and author != 'I_am_a_haiku_bot' and str(submission.subreddit).lower() not in blackList:
+                                    words = text.split()
+                                    line1 = "*" + words[0] + " " + words[1]+ " "  + words[2]+ " " + words[3]+ " "  + words[4] + "*"
+                                    line2 = "*" + words[5]+ " "  + words[6]+ " "  + words[7]+ " "  + words[8] + " " + words[9]+ " "  + words[10]+ " "  + words[11] + "*"
+                                    line3 = "*" + words[12] + " " + words[13] + " " + words[14]+ " "  + words[15]+ " "  + words[16] + "*"
+                                    message = line1 + "\n\n" + line2 + "\n\n" + line3 + "\n\n" + subscript
+                                    #print message
+                                    comment.reply(message)
+                                    getEntireCommentContext(comment, message)
+                                    deleteShitIfItHitsTheFan()
+                            elif (len(text.split()) < 18 and len(text.split()) > 11 ):
                                     words = text.split()
                                     sylCount = []
                                     totalSyl = 0

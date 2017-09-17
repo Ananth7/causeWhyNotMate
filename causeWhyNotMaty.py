@@ -270,7 +270,7 @@ while 1<2:
                                         sylCount.append(sylc)
                                         totalSyl += sylc
 
-                                    if (totalSyl == 17 or totalSyl == 18):
+                                    if (totalSyl == 17 or totalSyl == 16):
                                         numwords = []
                                         indx = 0
                                         sylencountered = 0

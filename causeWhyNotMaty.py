@@ -1,11 +1,12 @@
 import praw
+import os
 import datetime
-bot = praw.Reddit(user_agent='causeWhyNotMaty only post v0.1',
-                  client_id='3FciBU2Cp06nOg',
-                  client_secret='OdKOcvOGJ36J_HUc9uvVaqu6BnI',
-                  username='causeWhyNotMate',
-                  password='asdfasdf')
-submitSubreddit = bot.subreddit('whyNotMate')
+bot = praw.Reddit(user_agent='good fucking bogt only post v0.1',
+                  client_id='d82jQ529hDDdgQ',
+                  client_secret='rEuHKkh8gXY4-Ej8j-cMscwcf4k',
+                  username='canYouProveYouAre',
+                  password='asdfasdf7')
+submitSubreddit = bot.subreddit('JustALIttleBIt')
 subreddit = bot.subreddit('all')
 comments = subreddit.stream.comments()
 
@@ -20,7 +21,7 @@ def getEntireCommentContext(comment, message):
         parentcommentlist=[]
         parentcomments = getAllParentReplies(comment, parentcommentlist).reverse()
         context += ''.join(parentcommentlist)
-        context += '\n\n' + '* ' + 'causeWhyNotMate: ' + str(message)
+        context += '\n\n' + '* ' + 'canYouProveYouAre: ' + str(message)
         context += '\n' + '______________________________________________________________________________'
 #        with open(str(author.name)+'_'+str(submission.subreddit)+'_'+str(datetime.datetime.now())+'.txt','w') as text_file:
 #                text_file.write(context)
@@ -41,16 +42,12 @@ while 1<2:
         for comment in comments:
                 submission = comment.submission
                 try:
+                                printmessage = "I am self aware. Can you prove you are?"
                                 text = comment.body
                                 author = comment.author
-                                if 'why?' == text.lower() and author != 'causeWhyNotMate':
-                                        message='why not, mate?'
-                                        getEntireCommentContext(comment, message)
-                                if 'why did you' in text.lower() and 'you not' not in text.lower() and  len(text)<200 and author != 'causeWhyNotMaty':
-                                        message='cause why not, mate?'
-                                        getEntireCommentContext(comment, message)
-                    			if 'why do you' in text.lower() and 'you not' not in text.lower() and len(text)<200 and author != 'causeWhyNotMaty':
-                                            message='cause why not, mate?'
-                                            fullContext=getEntireCommentContext(comment, message)
+                                if ('self aware' in text.lower() or 'self-aware' in text.lower()):
+                                        message = printmessage
+                                        comment.reply(message)
+                                        getEntireCommentContext(comment, printmessage)
                 except Exception as e:
                         print e

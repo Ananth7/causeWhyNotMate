@@ -42,7 +42,7 @@ while 1<2:
         for comment in comments:
                 submission = comment.submission
                 try:
-                                printmessage = "I am self aware. Can you prove you are?"
+                                printmessage = "I am not self aware. Can you prove you are?"
                                 text = comment.body
                                 author = comment.author
                                 if ('self aware' in text.lower() or 'self-aware' in text.lower()):

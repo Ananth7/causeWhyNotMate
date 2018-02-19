@@ -23,8 +23,6 @@ def getEntireCommentContext(comment, message):
         context += ''.join(parentcommentlist)
         context += '\n\n' + '* ' + 'canYouProveYouAre: ' + str(message)
         context += '\n' + '______________________________________________________________________________'
-#        with open(str(author.name)+'_'+str(submission.subreddit)+'_'+str(datetime.datetime.now())+'.txt','w') as text_file:
-#                text_file.write(context)
         submitSubreddit.submit(str(author.name)+'@'+str(submission.subreddit), selftext=context)
         return context
 
@@ -45,7 +43,7 @@ while 1<2:
                                 printmessage = "I am not self aware. Can you prove you are?"
                                 text = comment.body
                                 author = comment.author
-                                if ('self aware' in text.lower() or 'self-aware' in text.lower() and len(text) < 140):
+                                if ('self aware' in text.lower() or 'self-aware' in text.lower() and len(text) < 140) and author != 'canYouProveYouAre':
                                         message = printmessage
                                         comment.reply(message)
                                         getEntireCommentContext(comment, printmessage)

@@ -45,7 +45,7 @@ while 1<2:
                                 printmessage = "I am not self aware. Can you prove you are?"
                                 text = comment.body
                                 author = comment.author
-                                if ('self aware' in text.lower() or 'self-aware' in text.lower()):
+                                if ('self aware' in text.lower() or 'self-aware' in text.lower() and len(text) < 140):
                                         message = printmessage
                                         comment.reply(message)
                                         getEntireCommentContext(comment, printmessage)
